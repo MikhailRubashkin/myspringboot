@@ -1,11 +1,11 @@
-package by.pvt;
+package by.pvt.Controller;
 
 import java.io.Serializable;
 import java.util.Date;
 
 public class OrderCmd implements Serializable {
 
-    private Long id;
+
     private Long productId;
     private Double productPrice;
     private Integer itemCount;
@@ -15,8 +15,8 @@ public class OrderCmd implements Serializable {
     public OrderCmd() {
     }
 
-    public OrderCmd(Long id, Long productId, Double productPrice, Integer itemCount, String comment, Date createdDate) {
-        this.id = id;
+    public OrderCmd( Long productId, Double productPrice, Integer itemCount, String comment, Date createdDate) {
+
         this.productId = productId;
         this.productPrice = productPrice;
         this.itemCount = itemCount;
@@ -24,13 +24,7 @@ public class OrderCmd implements Serializable {
         this.createdDate = createdDate;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getProductId() {
         return productId;
@@ -79,7 +73,7 @@ public class OrderCmd implements Serializable {
 
         OrderCmd orderCmd = (OrderCmd) o;
 
-        if (id != null ? !id.equals(orderCmd.id) : orderCmd.id != null) return false;
+
         if (productId != null ? !productId.equals(orderCmd.productId) : orderCmd.productId != null) return false;
         if (productPrice != null ? !productPrice.equals(orderCmd.productPrice) : orderCmd.productPrice != null)
             return false;
@@ -89,25 +83,23 @@ public class OrderCmd implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (productId != null ? productId.hashCode() : 0);
-        result = 31 * result + (productPrice != null ? productPrice.hashCode() : 0);
-        result = 31 * result + (itemCount != null ? itemCount.hashCode() : 0);
-        result = 31 * result + (comment != null ? comment.hashCode() : 0);
-        result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
+    public int hashCode (){
+        int result = productId != null ? productId.hashCode ( ) : 0;
+        result = 31 * result+(productPrice != null ? productPrice.hashCode ( ) : 0);
+        result = 31 * result+(itemCount != null ? itemCount.hashCode ( ) : 0);
+        result = 31 * result+(comment != null ? comment.hashCode ( ) : 0);
+        result = 31 * result+(createdDate != null ? createdDate.hashCode ( ) : 0);
         return result;
     }
 
     @Override
-    public String toString() {
-        return "Order{" +
-               "id=" + id +
-               ", productId=" + productId +
-               ", productPrice=" + productPrice +
-               ", itemCount=" + itemCount +
-               ", comment='" + comment + '\'' +
-               ", createdDate=" + createdDate +
+    public String toString (){
+        return "OrderCmd{"+
+               "productId="+productId+
+               ", productPrice="+productPrice+
+               ", itemCount="+itemCount+
+               ", comment='"+comment+'\''+
+               ", createdDate="+createdDate+
                '}';
     }
 }

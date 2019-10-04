@@ -1,5 +1,7 @@
-package by.pvt;
+package by.pvt.Controller;
 
+import by.pvt.dto.OrderDto;
+import by.pvt.service.OrderPaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +17,7 @@ public class OrderController {
     OrderPaymentService service;
 
     @GetMapping("/order")
-    public List<OrderDto> getOrders(@RequestParam int maxCount) {
+    public List<OrderDto> getOrders( @RequestParam int maxCount) {
         if (maxCount < 1) throw new IllegalArgumentException();
         return service.getAllOrders(maxCount);
     }
